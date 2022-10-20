@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Bebas+Neue&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;1,400&family=Lato:wght@100;300;400;700;900&family=Luckiest+Guy&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&family=Nunito:ital,wght@0,300;1,300&family=Poppins:wght@100;200;300;400&family=Roboto+Flex:opsz,wght@8..144,100;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap"
+        rel="stylesheet">
+    <title>grocery App</title>
+</head>
+
+<body>
+    <div class="navbar">
+
+        <div class="nav">
+            <div class="logo">
+                GroceryApp
+            </div>
+            <div class="left-logo">
+                LEFT
+            </div>
+        </div>
+
+
+    </div>
+    <!-- start sidebar -->
+    <div class="home-page">
+        <div class="sidebar">
+
+            <div class="total-amount">
+                <h2>Total Amount</h2>
+                <div id="total-price">
+
+                </div>
+                <div class="alert" id="alert">
+
+                </div>
+            </div>
+
+        </div>
+        <!-- endside bar -->
+        <!-- start home page -->
+
+        <div class="container">
+            <h1>your grocery</h1>
+            <div class="grocery-info">
+
+                <div class="grocery-name">
+                    <label for="Name">Name</label>
+                    <input type="text" id="input-name" placeholder="e.g.name">
+                </div>
+                <div class="grocery-price">
+                    <label for="price">price</label>
+                    <input id="input-price" type="number" placeholder="price">
+                </div>
+                <div class="add-info" id="add-info">
+                    <button id="add">Add</button>
+                </div>
+            </div>
+            <div class="table-info" id="table-info">
+                <table id="table">
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <!-- end home page -->
+    <script src="main.js"></script>
+</body>
+
+</html>

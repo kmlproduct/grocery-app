@@ -1,0 +1,112 @@
+.home-page {
+  display: flex;
+  .total-amount {
+    text-align: center;
+    h2 {
+      margin: 20px 0px;
+    }
+    .total-price {
+      background-color: rgb(240, 245, 233);
+      color: red;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+    }
+    .alert {
+      margin-top: 30px;
+    }
+  }
+  .container {
+    text-align: center;
+    width: 100%;
+    h1 {
+      margin: 50px;
+    }
+
+    .grocery-info {
+      margin: auto 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 45px;
+      padding: 50px;
+
+      .grocery-name,
+      .grocery-price {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        // gap: 20px;
+        width: 33.33%;
+        margin: 1px;
+
+        input {
+          height: 45px;
+          min-width: 100%;
+          padding: 5px 10px;
+          border-radius: 9px;
+
+          border: none;
+        }
+      }
+      .add-info {
+        align-self: flex-end;
+        width: 33.33%;
+        margin-right: 10px;
+        align-self: flex-end;
+        width: 33.33%;
+        margin-right: 10px;
+        display: flex;
+        justify-content: flex-end;
+        button {
+          height: 45px;
+          min-width: 25%;
+          border-radius: 9px;
+          border: none;
+        }
+      }
+    }
+    .table-info {
+      margin: auto 100px;
+      padding: 50px;
+
+      table {
+        color: white;
+        // display: flex;
+        // justify-content: space-between;
+
+        th {
+          border: 1px solid #aaaa;
+          padding: 5px;
+          width: 400px;
+        }
+        .delate {
+          background-color: rgb(207, 116, 116);
+          width: 150px;
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(238, 194, 111);
+          }
+        }
+        .edit {
+          background-color: rgb(87, 125, 250);
+          width: 150px;
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(238, 194, 111);
+          }
+        }
+      }
+      .parent-table {
+        display: flex;
+        justify-content: space-between;
+      }
+      .table-local {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        flex-direction: column;
+      }
+    }
+  }
+}

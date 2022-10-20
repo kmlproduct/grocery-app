@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  background-color: #3d9f94;
+}
+
+.navbar {
+  background-color: rgba(7, 142, 137, 0.74);
+  border-bottom: 1px solid rgb(105, 103, 103);
+  padding: 0 20px;
+}
+.navbar .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+  font-family: "Poppins", sans-serif;
+}
+
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: rgb(98, 195, 184);
+  height: calc(100vh - 81px);
+  border-right: 1px solid rgb(105, 103, 103);
+}
+
+.home-page {
+  display: flex;
+}
+.home-page .total-amount {
+  text-align: center;
+}
+.home-page .total-amount h2 {
+  margin: 20px 0px;
+}
+.home-page .total-amount .total-price {
+  background-color: rgb(240, 245, 233);
+  color: red;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+.home-page .total-amount .alert {
+  margin-top: 30px;
+}
+.home-page .container {
+  text-align: center;
+  width: 100%;
+}
+.home-page .container h1 {
+  margin: 50px;
+}
+.home-page .container .grocery-info {
+  margin: auto 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  padding: 50px;
+}
+.home-page .container .grocery-info .grocery-name,
+.home-page .container .grocery-info .grocery-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 33.33%;
+  margin: 1px;
+}
+.home-page .container .grocery-info .grocery-name input,
+.home-page .container .grocery-info .grocery-price input {
+  height: 45px;
+  min-width: 100%;
+  padding: 5px 10px;
+  border-radius: 9px;
+  border: none;
+}
+.home-page .container .grocery-info .add-info {
+  align-self: flex-end;
+  width: 33.33%;
+  margin-right: 10px;
+  align-self: flex-end;
+  width: 33.33%;
+  margin-right: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.home-page .container .grocery-info .add-info button {
+  height: 45px;
+  min-width: 25%;
+  border-radius: 9px;
+  border: none;
+}
+.home-page .container .table-info {
+  margin: auto 100px;
+  padding: 50px;
+}
+.home-page .container .table-info table {
+  color: white;
+}
+.home-page .container .table-info table th {
+  border: 1px solid rgba(170, 170, 170, 0.6666666667);
+  padding: 5px;
+  width: 400px;
+}
+.home-page .container .table-info table .delate {
+  background-color: rgb(207, 116, 116);
+  width: 150px;
+  cursor: pointer;
+}
+.home-page .container .table-info table .delate:hover {
+  background-color: rgb(238, 194, 111);
+}
+.home-page .container .table-info table .edit {
+  background-color: rgb(87, 125, 250);
+  width: 150px;
+  cursor: pointer;
+}
+.home-page .container .table-info table .edit:hover {
+  background-color: rgb(238, 194, 111);
+}
+.home-page .container .table-info .parent-table {
+  display: flex;
+  justify-content: space-between;
+}
+.home-page .container .table-info .table-local {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-direction: column;
+}/*# sourceMappingURL=main.css.map */
