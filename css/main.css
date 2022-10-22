@@ -101,6 +101,20 @@
 }
 .home-page .container .table-info table {
   color: white;
+  width: 100%;
+}
+.home-page .container .table-info table tbody {
+  width: 100%;
+}
+.home-page .container .table-info table tbody tr {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(170, 170, 170, 0.6666666667);
+  margin: 2px 0;
+}
+.home-page .container .table-info table tbody tr td {
+  background-color: rebeccapurple;
+  width: 150px;
 }
 .home-page .container .table-info table th {
   border: 1px solid rgba(170, 170, 170, 0.6666666667);
@@ -122,15 +136,4 @@
 }
 .home-page .container .table-info table .edit:hover {
   background-color: rgb(238, 194, 111);
-}
-.home-page .container .table-info .parent-table {
-  display: flex;
-  justify-content: space-between;
-}
-.home-page .container .table-info .table-local {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  flex-direction: column;
 }/*# sourceMappingURL=main.css.map */

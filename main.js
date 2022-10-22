@@ -2,28 +2,29 @@ var addInfo = document.getElementById('add-info');
 var PareTable = document.getElementById('table-info');
 var inputName = document.getElementById('input-name');
 var inputPrice = document.getElementById('input-price');
-var myTable = document.getElementById('table');
+var myTable = document.querySelector('#table tbody');
 var myAmount = document.getElementById('total-price')
 
-
+console.log(myTable)
 
 
 
 addInfo.addEventListener('click', function () {
 
-
-
-    myTable.innerHTML += `<tr id="parent">
-    <th class='name'>${inputName.value}  </th> 
-    <th class='price'> ${inputPrice.value}</th> 
-    <th class='delate'>delate</th> 
-    </tr>`
-
-    // localStorage
     var groceryItem = {
         name: `${inputName.value}`,
         price: `${inputPrice.value}`,
+        id: new Date().getTime(),
     }
+
+    myTable.innerHTML += `<tr id="${groceryItem.id}">
+    <td class='name'>${groceryItem.name}  </td> 
+    <td class='price'> ${groceryItem.price}</td> 
+    <td class='delate'>delate</td> 
+    </tr>`
+
+    // localStorage
+
 
     var storedItems = localStorage.getItem('localData')
 
@@ -48,15 +49,28 @@ addInfo.addEventListener('click', function () {
     myAmount.innerText = `${sum1}.00`
 
     var delate = document.querySelectorAll('.delate');
+
+
     let totalAmount = JSON.parse(myAmount.innerText)
 
-    for (var i = 0; i < delate.length; i++) {
-        delate[i].onclick = function () {
-            this.parentNode.remove();
-            var x = this.parentNode.childNodes[3].textContent
-            x = JSON.parse(x);
-            myAmount.textContent = JSON.parse(myAmount.textContent) - x;
-        }
+
+    delate[delate.length - 1].onclick = function () {
+        // delate[delate.length - 1]
+
+        let deleteLocalItem = JSON.parse(this.parentNode.getAttribute('id'))
+        const removeIndex = groceryItems.findIndex(item => item.id === deleteLocalItem);
+        groceryItems.splice(removeIndex, 1);
+        localStorage.setItem('localData', JSON.stringify(groceryItems))
+
+
+        this.parentNode.remove();
+        var x = this.parentNode.childNodes[3].textContent
+        x = JSON.parse(x);
+        myAmount.textContent = JSON.parse(myAmount.textContent) - x;
+
+
+
+
     }
     if (totalAmount > 300) {
 
@@ -75,14 +89,15 @@ addInfo.addEventListener('click', function () {
 
 
 window.onload = function () {
+
     var storedItems = localStorage.getItem('localData');
     var groceryItems = storedItems ? JSON.parse(storedItems) : [];
     groceryItems.forEach(element => {
         myTable.innerHTML +=
-            `<tr id="parent">
-        <th>${element.name}  </th> 
-        <th class='price'>${element.price}  </th> 
-        <th class ="delate">Delate</th> 
+            `<tr id="${element.id}">
+        <td class="name">${element.name}  </td> 
+        <td class='price'>${element.price}  </td> 
+        <td class ="delate">Delate</td> 
         </tr>`
     });
 
@@ -109,31 +124,35 @@ window.onload = function () {
 
     let delate = document.getElementsByClassName('delate');
     let totalAmount = JSON.parse(myAmount.innerText)
-
-
     for (var i = 0; i < delate.length; i++) {
         delate[i].onclick = function () {
+
+            let deleteLocalItem = JSON.parse(this.parentNode.getAttribute('id'))
+
+            const removeIndex = groceryItems.findIndex(item => item.id === deleteLocalItem);
+
+            groceryItems.splice(removeIndex, 1);
+
+            localStorage.setItem('localData', JSON.stringify(groceryItems))
+
+
+
             this.parentNode.remove()
             var x = this.parentNode.childNodes[3].textContent
             x = JSON.parse(x);
             myAmount.textContent = JSON.parse(myAmount.textContent) - x;
+
         }
+
     }
-
     if (totalAmount > 300) {
-
         document.getElementById('alert').innerText = `you have to control your salary`
         myAmount.style.background = '#eb911e';
         myAmount.style.color = 'white';
         document.getElementById('alert').style.background = 'white'
-
-
     } else {
         document.getElementById('alert').innerText = ``
         myAmount.style.background = 'none';
         document.getElementById('alert').style.background = 'none'
     }
-
-
-
 }
