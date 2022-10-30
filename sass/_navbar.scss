@@ -1,7 +1,19 @@
 .navbar {
-  background-color: rgb(7 142 137 / 74%);
-  border-bottom: 1px solid rgb(105, 103, 103);
+  background-color: rgba(235, 241, 241, 0.74);
+  border-bottom: 1px solid rgb(226, 224, 224);
   padding: 0 20px;
+  box-shadow: 0px 0.7px 2.2px rgba(0, 0, 0, 0.02),
+    0px 1.8px 5.3px rgba(0, 0, 0, 0.028), 0px 3.4px 10px rgba(0, 0, 0, 0.035),
+    0px 6px 17.9px rgba(0, 0, 0, 0.042), 0px 11.3px 33.4px rgba(0, 0, 0, 0.05),
+    0px 27px 80px rgba(0, 0, 0, 0.07);
+  .logo {
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background: rgb(207, 116, 116);
+    padding: 9px 15px;
+  }
 
   .nav {
     display: flex;
