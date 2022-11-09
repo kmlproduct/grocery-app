@@ -5,17 +5,65 @@ var inputPrice = document.getElementById('input-price');
 var myTable = document.querySelector('#table tbody');
 var totalSpending = document.getElementById('total-price')
 var parentModal = document.getElementById('parent-modal')
-
-
-
+var cancelChange = document.getElementById('cancel')
+let = homePage = document.querySelector('.home-page')
 
 function getData() {
     const storedItems = localStorage.getItem('localData');
     return storedItems ? JSON.parse(storedItems) : [];
 }
 
-addInfo.addEventListener('click', function () {
+function editfunction() {
+    let editBtn = document.getElementsByClassName('edit')
 
+
+    let editInputName = document.getElementById('edit-input-name')
+    let editInputPrice = document.getElementById('edit-input-price')
+    let saveInfo = document.getElementById('save-change')
+
+    for (var i = 0; i < editBtn.length; i++) {
+
+
+        editBtn[i].onclick = function () {
+            let editLocalItem = JSON.parse(this.parentNode.getAttribute('id'))
+            parentModal.style.display = 'block';
+            homePage.style.opacity = '0.07'
+
+            const groceryItems = getData();
+            let groceryItem = groceryItems.find(item => item.id === editLocalItem);
+            editInputName.value = groceryItem.name
+            editInputPrice.value = groceryItem.price
+            saveInfo.onclick = function () {
+
+                groceryItem.name = editInputName.value
+                groceryItem.price = editInputPrice.value,
+
+
+                    localStorage.setItem('localData', JSON.stringify(groceryItems))
+
+                parentModal.style.display = 'none'
+                homePage.style.opacity = '1'
+                const parent = document.getElementById(editLocalItem)
+                parent.querySelector('.price').innerText = groceryItem.price
+                parent.querySelector('.name').innerText = groceryItem.name
+            }
+            cancelChange.onclick = function () {
+                parentModal.style.display = 'block'
+                parentModal.style.display = 'none';
+                homePage.style.opacity = '1'
+            }
+
+        }
+
+    }
+}
+
+
+
+addInfo.addEventListener('click', function () {
+    if (inputName.value == '' || inputPrice.value == '') {
+        return
+    }
     var groceryItem = {
         name: inputName.value,
         price: inputPrice.value,
@@ -45,7 +93,6 @@ addInfo.addEventListener('click', function () {
     totalSpending.innerText = sum.toFixed(2)
     localStorage.setItem('localData', JSON.stringify(groceryItems))
     let totalAmount = parseInt(totalSpending.innerText)
-    console.log(totalAmount)
 
     if (totalAmount < 300) {
         document.getElementById('alert').innerText = ``
@@ -84,7 +131,10 @@ addInfo.addEventListener('click', function () {
 
 
     }
+    editfunction()
 
+    inputName.value = ''
+    inputPrice.value = ''
 
 })
 
@@ -164,43 +214,5 @@ window.onload = function () {
         }
     }
 
-    let editBtn = document.getElementsByClassName('edit')
-    let editInputName = document.getElementById('edit-input-name')
-    let editInputPrice = document.getElementById('edit-input-price')
-    let saveInfo = document.getElementById('save-change')
-
-    for (var i = 0; i < editBtn.length; i++) {
-
-
-        editBtn[i].onclick = function () {
-            let editLocalItem = JSON.parse(this.parentNode.getAttribute('id'))
-
-            parentModal.style.display = 'block'
-            let groceryItem = groceryItems.find(item => item.id === editLocalItem);
-            editInputName.value = groceryItem.name
-            editInputPrice.value = groceryItem.price
-
-            saveInfo.onclick = function () {
-
-
-                groceryItem.name = editInputName.value
-                groceryItem.price = editInputPrice.value,
-
-                    //     groceryItems.push(groceryItem)
-
-                    localStorage.setItem('localData', JSON.stringify(groceryItems))
-
-                parentModal.style.display = 'none'
-
-            }
-
-
-
-
-
-
-
-        }
-
-    }
+    editfunction()
 }

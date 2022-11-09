@@ -1,5 +1,6 @@
 .home-page {
   display: flex;
+
   .total-amount {
     text-align: center;
     h2 {
@@ -16,22 +17,11 @@
       justify-content: center;
       align-items: center;
     }
-    .done {
-      background-color: red;
-    }
-    .total-price {
-      background-color: rgb(240, 245, 233);
-      color: red;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-    }
-    .alert {
-      margin-top: 30px;
-    }
   }
   .container {
     text-align: center;
-    width: 100%;
+    flex-grow: 1;
+
     h1 {
       margin: 50px;
       letter-spacing: 4px;
@@ -45,7 +35,7 @@
       align-items: center;
       justify-content: center;
       gap: 9px;
-      padding: 30px 50px;
+      padding: 30px 0px;
 
       .grocery-name,
       .grocery-price {
@@ -61,7 +51,7 @@
 
         input {
           height: 45px;
-          min-width: 100%;
+          width: 100%;
           padding: 5px 10px;
           border-radius: 9px;
 
@@ -87,7 +77,6 @@
     }
     .table-info {
       margin: auto 100px;
-      padding: 0 50px;
 
       table {
         color: white;
@@ -130,6 +119,59 @@
           cursor: pointer;
           &:hover {
             background-color: rgb(238, 194, 111);
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 967px) {
+  .home-page {
+    .container {
+      .grocery-info {
+        margin: auto 50px;
+      }
+      .table-info {
+        margin: auto 50px;
+      }
+    }
+  }
+}
+@media (max-width: 560px) {
+  .home-page {
+    .container {
+      padding: 0 5px;
+      h1 {
+        margin: 50px 0;
+        font-size: 30px;
+      }
+      .grocery-info {
+        flex-direction: column;
+        margin: auto 10px;
+        .grocery-name,
+        .grocery-price {
+          width: 100%;
+          input {
+            width: 100%;
+          }
+        }
+        .add-info {
+          width: 100%;
+          margin-right: 0;
+          button {
+            width: 100%;
+          }
+        }
+      }
+      .table-info {
+        margin: auto 10px;
+        table {
+          tbody {
+            tr {
+              td {
+                min-width: 62px;
+              }
+            }
           }
         }
       }
